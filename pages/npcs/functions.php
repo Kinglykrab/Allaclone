@@ -77,6 +77,7 @@ function return_npc_spawns_count($spawngroup_id) {
 
 function return_nearby_npcs_count($spawngroup_id) {
 	global $npc_types_table, $spawn2_table, $spawn_entry_table, $spawn_group_table, $zones_table;
+	$range = ($spawngroup_around_range * $spawngroup_around_range);
 	$return_buffer = "";
 	$query = "SELECT $spawn_group_table.name AS sgname, $spawn2_table.*,
         $zones_table.long_name AS zone, $zones_table.short_name AS spawnzone
@@ -113,7 +114,7 @@ function return_nearby_npcs_count($spawngroup_id) {
 			"<tr colspan = '2'>
 				<td><h2 class = 'section_header'>Nearby NPC Spawns</h2></td>
 			</tr>";
-			$return_buffer .= "<tr id = 'npc_spawn_view'>";
+			$return_buffer .= "<tr id = 'npc_nearby_view'>";
 				$return_buffer .= "<td><ul><li><a onclick = 'nearby_npc_view(" . $spawngroup_id . ")'>Click to View</a></li></ul></td>";
 			$return_buffer .= "</tr>";
 		}

@@ -79,10 +79,8 @@
                                             </tr>
                                             <tr>
                                                 <td  class="menu_item">
-                                                    <li><a href="/">Home</a></li>
-													<li><a href="/?p=leaderboard">Leaderboard</a></li>
+                                                    <li><a href="/Wiki">Home</a></li>
 													<li><a href="/Magelo">Magelo</a></li>
-                                                    <li><a href="http://www.eqemulator.org">EQEmulator</a></li>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -135,7 +133,7 @@
                                             </tr>
                                             <tr>
                                                 <td  class="menu_item">
-                                                    <li><a href="?a=zonelist">Zones by Era</a></li>
+                                                    <li><a href="?a=zone_expansions">Zones by Expansion</a></li>
                                                     <li><a href="?a=zones">Populated Zones</a> </li>
                                                 </td>
                                             </tr>

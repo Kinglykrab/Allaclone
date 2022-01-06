@@ -93,13 +93,13 @@ $print_buffer .= "<table border='0' width='100%'>";
 
 $npc_attack_speed = "";
 if ($show_npcs_attack_speed == TRUE) {
-    $npc_attack_speed = "<tr><td style='text-align:right'><b>Attack Speed</td><td>";
+    $npc_attack_speed = "<li><b>Attack Speed ";
     if ($npc["attack_speed"] == 0) {
         $npc_attack_speed .= "Normal (100%)";
     } else {
         $npc_attack_speed .= (100 + $npc["attack_speed"]) . "%";
     }
-    $print_buffer .= "</td></tr>";
+    $print_buffer .= "</li>";
 }
 
 $print_buffer .= "</td></tr></table>";
@@ -107,46 +107,16 @@ $print_buffer .= "</td></tr></table>";
 if ($npc["lastname"] != "") 
 	$lastname = "(" . $npc["lastname"] . ")";
 
-$npc_data = '
-    <table border="0" width="100%">
-        <tbody>
-            <tr>
-                <td style="width:250px !important; text-align:right"><b>Name</b>
-                </td>
-                <td>' . get_npc_name_human_readable($npc["name"]) . ' ' . $lastname . '</td>
-            </tr>
-            <tr>
-                <td style="text-align:right""><b>Level</b>
-                </td>
-                <td>' . $npc["level"] . '</td>
-            </tr>
-            <tr>
-                <td style="text-align:right"><b>Race</b>
-                </td>
-                <td>' . $dbiracenames[$npc["race"]]  .'</td>
-            </tr>
-            <tr>
-                <td style="text-align:right"><b>Class</b>
-                </td>
-                <td>' . $dbclasses[$npc["class"]] . '</td>
-            </tr>
-            <tr>
-                <td style="text-align:right"><b>Health</b>
-                </td>
-                <td>' . number_format($npc["hp"]) . '</td>
-            </tr>
-            <tr>
-                <td style="text-align:right"><b>Damage</b>
-                </td>
-                <td>' . number_format($npc["mindmg"]) . " to " . number_format($npc["maxdmg"]) . '</td>
-            </tr>
-            ' . $npc_attack_speed . '
-        </tbody>
-    </table>
-
-';
-
-$print_buffer .= $npc_data;
+$print_buffer.= '
+    <h2 class = "section_header">Info</h2>
+		<ul>
+			<li><b>Name</b> ' . get_npc_name_human_readable($npc["name"]) . ' ' . $lastname . '</li>
+			<li><b>Level</b> ' . $npc["level"] . '</li>
+			<li><b>Race</b> ' . $dbiracenames[$npc["race"]]  .'</li>
+            <li><b>Class</b> ' . $dbclasses[$npc["class"]] . '</li>
+            <li><b>Health</b> ' . number_format($npc["hp"]) . '</li>
+            <li><b>Damage</b> ' . number_format($npc["mindmg"]) . " to " . number_format($npc["maxdmg"]) . '</li>
+            ' . $npc_attack_speed;
 
 $print_buffer .= "<tr valign='top'>";
 
@@ -275,22 +245,17 @@ if ($npc["merchant_id"] > 0) {
     ";
     $result = db_mysql_query($query) or message_die('npc.php', 'MYSQL_QUERY', $query, mysqli_error());
     if (mysqli_num_rows($result) > 0) {
-        $print_buffer .= "<td><table border='0'><tr><td colspan='2' nowrap='1'><b>This NPC sells</b><br/><br>";
+		$num_rows = mysqli_num_rows($result);
+        $print_buffer .= "<td><table><tr><td colspan='2' nowrap><h2 class = 'section_header'>NPC Merchant Info</h2>";
+		$print_buffer .= ($num_rows > 1 ? "<ol>" : "<ul>");
         while ($row = mysqli_fetch_array($result)) {
-            $print_buffer .= "<li style='list-style-type:none;margin-left:15px;'><a href='?a=item&id=" . $row["id"] . "'>" .
-                '<img src="' . $icons_url . $row['icon'] . '.gif" align="center" border="1" style="border-radius:5px;height:15px;width:auto"> ' .
-                 $row["Name"] .
-                 "</a> ";
-            if ($npc["class"] == 41)
-                $print_buffer .= "(" . price($row["price"]) . ")";
-			
-            if ($npc["class"] == 61)
-                $print_buffer .= "(" . $row["ldonprice"] . " points)";
-			
-            $print_buffer .= "</li>";
+            $print_buffer .= "<li>" . get_item_icon_from_id($row["id"]) . " <a href='?a=item&id=" . $row["id"] . "'>" .$row["Name"] . "</a></li>";
         }
+		$print_buffer .= ($num_rows > 1 ? "<ol>" : "<ul>");
         $print_buffer .= "</td></tr></table></td>";
-    }
+    } else {
+		$print_buffer .= "<td><table><tr><td colspan='2' nowrap><ul><li>No entries found.</li></ul></td></tr></table></td>";
+	}
 }
 
 $print_buffer .= "</tr></table>";
@@ -347,12 +312,6 @@ if (mysqli_num_rows($result) > 0) {
 	while ($row = mysqli_fetch_array($result)) {
 		if ($z != $row["short_name"]) {
 			$data_buffer .= "<p><a href='?a=zone&name=" . $row["short_name"] . "'>" . $row["long_name"] . "</a></p>";
-			$z = $row["short_name"];
-			if ($allow_quests_npc == TRUE) {
-				if (file_exists("$quests_dir$z/" . str_replace("#", "", $npc["name"]) . ".pl")) {
-					$data_buffer .= "<br/><a href='" . $root_url . "quests/index.php?npc=" . str_replace("#", "", $npc["name"]) . "&zone=" . $z . "&amp;npcid=" . $id . "'>Quest(s) for that NPC</a>";
-				}
-			}
 		}
 		if ($display_spawn_group_info == TRUE) {
 			$data_buffer .= "<li><a href = '?a=spawngroup&id=" . $row["spawngroupID"] . "'>" . $row["spawngroup"] . "</a> Spawns every " . translate_time($row["respawntime"]) . " at X (" . number_format($row["x"], 2) . "), Y (" . number_format($row["y"], 2) . "), Z (" . number_format($row["z"], 2) . ").";

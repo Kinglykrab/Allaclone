@@ -8,6 +8,7 @@ if (!is_numeric($id)) {
     exit();
 }
 
+
 $page_title = "Recipe :: " . str_replace('_', ' ', get_field_result("name", "SELECT name FROM $trade_skill_recipe_table WHERE id=$id"));
 
 
@@ -42,7 +43,13 @@ if ($recipe["notes"] != "")
     $print_buffer .= "<b>Notes: </b>" . $recipe["notes"] . "<br>";
 
 if ($recipe["nofail"] > 0)
-    $print_buffer .= "<b>This recipe cannot fail.</b><br>";
+    $print_buffer .= "<font color = '#FF00FF'>This recipe cannot fail.</font><br>";
+
+if (!$recipe["enabled"]) {
+    $print_buffer .= "<font color = '#F62217'>This recipe is disabled.</font><br>";
+} else {
+    $print_buffer .= "<font color = '#00FF00'>This recipe is enabled.</font><br>";
+}
 
 $print_buffer .= '</ul></td></tr>';
 

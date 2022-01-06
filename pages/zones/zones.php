@@ -18,12 +18,14 @@ $query = "
     AND $spawn2_table.zone = $zones_table.short_name
 	AND $zones_table.min_status = 0
 	GROUP BY $spawn2_table.zone
-	ORDER BY $zones_table.long_name ASC";
+	ORDER BY $zones_table.long_name ASC
+";
 $result = db_mysql_query($query) or message_die('zones.php', 'MYSQL_QUERY', $query, mysqli_error());
-$print_buffer .= "<table class='display_table datatable container_div'><tr>
+$print_buffer .= "
+	<table class='display_table datatable container_div'><tr>
        <td style='font-weight:bold'>Name</td>
        <td style='font-weight:bold'>Spawns</td>
-       ";
+";
 while ($row = mysqli_fetch_array($result)) {
 	$print_buffer .=
 	"

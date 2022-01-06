@@ -4,6 +4,7 @@
 $accounts_table = "account";
 $character_table = "character_data";
 $faction_list_table = "faction_list";
+$fishing_table = "fishing";
 $forage_table = "forage";
 $ground_spawns_table = "ground_spawns";
 $items_table = "items";
@@ -231,107 +232,108 @@ $db_races_short[2] = "BAR";
 $db_races_short[1] = "HUM";
 
 // Skills
-$dbskills = array();
-$dbskills[0] = '1H Blunt';
-$dbskills[1] = '1H Slashing';
-$dbskills[2] = '2H Blunt';
-$dbskills[3] = '2H Slashing';
-$dbskills[4] = 'Abjuration';
-$dbskills[5] = 'Alteration';
-$dbskills[6] = 'Apply Poison';
-$dbskills[7] = 'Archery';
-$dbskills[8] = 'Backstab';
-$dbskills[9] = 'Bind Wound';
-$dbskills[10] = 'Bash';
-$dbskills[11] = 'Block';
-$dbskills[12] = 'Brass Instruments';
-$dbskills[13] = 'Channeling';
-$dbskills[14] = 'Conjuration';
-$dbskills[15] = 'Defense';
-$dbskills[16] = 'Disarm';
-$dbskills[17] = 'Disarm Traps';
-$dbskills[18] = 'Divination';
-$dbskills[19] = 'Dodge';
-$dbskills[20] = 'Double Attack';
-$dbskills[21] = 'Dragon Punch';
-$dbskills[22] = 'Dual Wield';
-$dbskills[23] = 'Eagle Strike';
-$dbskills[24] = 'Evocation';
-$dbskills[25] = 'Feign Death';
-$dbskills[26] = 'Flying Kick';
-$dbskills[27] = 'Forage';
-$dbskills[28] = 'Hand to Hand';
-$dbskills[29] = 'Hide';
-$dbskills[30] = 'Kick';
-$dbskills[31] = 'Meditate';
-$dbskills[32] = 'Mend';
-$dbskills[33] = 'Offense';
-$dbskills[34] = 'Parry';
-$dbskills[35] = 'Pick Lock';
-$dbskills[36] = '1H Piercing';
-$dbskills[37] = 'Riposte';
-$dbskills[38] = 'Round Kick';
-$dbskills[39] = 'Safe Fall';
-$dbskills[40] = 'Sense Heading';
-$dbskills[41] = 'Singing';
-$dbskills[42] = 'Sneak';
-$dbskills[43] = 'Specialize Abjuration';
-$dbskills[44] = 'Specialize Alteration';
-$dbskills[45] = 'Specialize Conjuration';
-$dbskills[46] = 'Specialize Divination';
-$dbskills[47] = 'Specialize Evocation';
-$dbskills[48] = 'Pick Pocket';
-$dbskills[49] = 'Stringed Instruments';
-$dbskills[50] = 'Swimming';
-$dbskills[51] = 'Throwing';
-$dbskills[52] = 'Clicky';
-$dbskills[53] = 'Tracking';
-$dbskills[54] = 'Wind Instruments';
-$dbskills[55] = 'Fishing';
-$dbskills[56] = 'Poison Making';
-$dbskills[57] = 'Tinkering';
-$dbskills[58] = 'Research';
-$dbskills[59] = 'Alchemy';
-$dbskills[60] = 'Baking';
-$dbskills[61] = 'Tailoring';
-$dbskills[62] = 'Sense Traps';
-$dbskills[63] = 'Blacksmithing';
-$dbskills[64] = 'Fletching';
-$dbskills[65] = 'Brewing';
-$dbskills[66] = 'Alcohol Tolerance';
-$dbskills[67] = 'Begging';
-$dbskills[68] = 'Jewelry Making';
-$dbskills[69] = 'Pottery';
-$dbskills[70] = 'Percussion Instruments';
-$dbskills[71] = 'Intimidation';
-$dbskills[72] = 'Berserking';
-$dbskills[73] = 'Taunt';
-$dbskills[74] = 'Frenzy';
-$dbskills[75] = 'Remove Traps';
-$dbskills[76] = 'Triple Attack';
-$dbskills[77] = '2H Piercing';
+$dbskills = array(
+    '1H Blunt',
+    '1H Slashing',
+    '2H Blunt',
+    '2H Slashing',
+    'Abjuration',
+    'Alteration',
+    'Apply Poison',
+    'Archery',
+    'Backstab',
+    'Bind Wound',
+    'Bash',
+    'Block',
+    'Brass Instruments',
+    'Channeling',
+    'Conjuration',
+    'Defense',
+    'Disarm',
+    'Disarm Traps',
+    'Divination',
+    'Dodge',
+    'Double Attack',
+    'Dragon Punch',
+    'Dual Wield',
+    'Eagle Strike',
+    'Evocation',
+    'Feign Death',
+    'Flying Kick',
+    'Forage',
+    'Hand to Hand',
+    'Hide',
+    'Kick',
+    'Meditate',
+    'Mend',
+    'Offense',
+    'Parry',
+    'Pick Lock',
+    '1H Piercing',
+    'Riposte',
+    'Round Kick',
+    'Safe Fall',
+    'Sense Heading',
+    'Singing',
+    'Sneak',
+    'Specialize Abjuration',
+    'Specialize Alteration',
+    'Specialize Conjuration',
+    'Specialize Divination',
+    'Specialize Evocation',
+    'Pick Pocket',
+    'Stringed Instruments',
+    'Swimming',
+    'Throwing',
+    'Tiger Claw',
+    'Tracking',
+    'Wind Instruments',
+    'Fishing',
+    'Poison Making',
+    'Tinkering',
+    'Research',
+    'Alchemy',
+    'Baking',
+    'Tailoring',
+    'Sense Traps',
+    'Blacksmithing',
+    'Fletching',
+    'Brewing',
+    'Alcohol Tolerance',
+    'Begging',
+    'Jewelry Making',
+    'Pottery',
+    'Percussion Instruments',
+    'Intimidation',
+    'Berserking',
+    'Taunt',
+    'Frenzy',
+    'Remove Traps',
+    'Triple Attack',
+    '2H Piercing'
+);
 
 // spell effects
 $dbspelleffects = [];
-$dbspelleffects[0] = 'Increase Hitpoints'; // or decrease
-$dbspelleffects[1] = 'Increase AC';
-$dbspelleffects[2] = 'Increase ATK';
-$dbspelleffects[3] = 'In/Decrease Movement';
-$dbspelleffects[4] = 'Increase STR';
-$dbspelleffects[5] = 'Increase DEX';
-$dbspelleffects[6] = 'Increase AGI';
-$dbspelleffects[7] = 'Increase STA';
-$dbspelleffects[8] = 'Increase INT';
-$dbspelleffects[9] = 'Increase WIS';
-$dbspelleffects[10] = 'Increase CHA';
-$dbspelleffects[11] = 'In/Decrease Attack Speed';
+$dbspelleffects[0] = 'Health'; // or decrease
+$dbspelleffects[1] = 'Armor Class';
+$dbspelleffects[2] = 'Attack';
+$dbspelleffects[3] = 'Movement Speed';
+$dbspelleffects[4] = 'Strength';
+$dbspelleffects[5] = 'Dexterity';
+$dbspelleffects[6] = 'Agility';
+$dbspelleffects[7] = 'Stamina';
+$dbspelleffects[8] = 'Inteliigence';
+$dbspelleffects[9] = 'Wisdom';
+$dbspelleffects[10] = 'Charisma';
+$dbspelleffects[11] = 'Attack Speed';
 $dbspelleffects[12] = 'Invisibility';
 $dbspelleffects[13] = 'See Invisible';
-$dbspelleffects[14] = 'WaterBreathing';
-$dbspelleffects[15] = 'Increase Mana';
+$dbspelleffects[14] = 'Water Breathing';
+$dbspelleffects[15] = 'Mana';
 $dbspelleffects[18] = 'Pacify';
-$dbspelleffects[19] = 'Increase Faction';
-$dbspelleffects[20] = 'Blindness';
+$dbspelleffects[19] = 'Faction';
+$dbspelleffects[20] = 'Blind';
 $dbspelleffects[21] = 'Stun';
 $dbspelleffects[22] = 'Charm';
 $dbspelleffects[23] = 'Fear';
@@ -344,61 +346,61 @@ $dbspelleffects[29] = 'Invisibility versus Animals';
 $dbspelleffects[30] = 'Frenzy Radius';
 $dbspelleffects[31] = 'Mesmerize';
 $dbspelleffects[32] = 'Summon Item';
-$dbspelleffects[33] = 'Summon Pet';
-$dbspelleffects[35] = 'Increase Disease Counter';
-$dbspelleffects[36] = 'Increase Poison Counter';
+$dbspelleffects[33] = 'Summon Pet:';
+$dbspelleffects[35] = 'Disease Counter';
+$dbspelleffects[36] = 'Poison Counter';
 $dbspelleffects[40] = 'Invunerability';
 $dbspelleffects[41] = 'Destroy Target';
 $dbspelleffects[42] = 'Shadowstep';
 $dbspelleffects[44] = 'Lycanthropy';
-$dbspelleffects[46] = 'Increase Fire Resist';
-$dbspelleffects[47] = 'Increase Cold Resist';
-$dbspelleffects[48] = 'Increase Poison Resist';
-$dbspelleffects[49] = 'Increase Disease Resist';
-$dbspelleffects[50] = 'Increase Magic Resist';
+$dbspelleffects[46] = 'Fire Resist';
+$dbspelleffects[47] = 'Cold Resist';
+$dbspelleffects[48] = 'Poison Resist';
+$dbspelleffects[49] = 'Disease Resist';
+$dbspelleffects[50] = 'Magic Resist';
 $dbspelleffects[52] = 'Sense Undead';
 $dbspelleffects[53] = 'Sense Summoned';
 $dbspelleffects[54] = 'Sense Animals';
-$dbspelleffects[55] = 'Increase Absorb Damage';
+$dbspelleffects[55] = 'Absorb Damage';
 $dbspelleffects[56] = 'True North';
 $dbspelleffects[57] = 'Levitate';
-$dbspelleffects[58] = 'Illusion:';
-$dbspelleffects[59] = 'Increase Damage Shield';
+$dbspelleffects[58] = 'Illusion: ';
+$dbspelleffects[59] = 'Damage Shield';
 $dbspelleffects[61] = 'Identify';
-$dbspelleffects[63] = 'Memblur';
+$dbspelleffects[63] = 'Memory Blur';
 $dbspelleffects[64] = 'SpinStun';
 $dbspelleffects[65] = 'Infravision';
 $dbspelleffects[66] = 'Ultravision';
 $dbspelleffects[67] = 'Eye Of Zomm';
 $dbspelleffects[68] = 'Reclaim Energy';
-$dbspelleffects[69] = 'Increase Max Hitpoints';
-$dbspelleffects[71] = 'Summon Pet';
+$dbspelleffects[69] = 'Max Health';
+$dbspelleffects[71] = 'Summon Pet:';
 $dbspelleffects[73] = 'Bind Sight';
 $dbspelleffects[74] = 'Feign Death';
 $dbspelleffects[75] = 'Voice Graft';
 $dbspelleffects[76] = 'Sentinel';
 $dbspelleffects[77] = 'Locate Corpse';
-$dbspelleffects[78] = 'Increase Absorb Magic Damage';
-$dbspelleffects[79] = 'Increase HP when cast';
+$dbspelleffects[78] = 'Absorb Magic Damage';
+$dbspelleffects[79] = 'Health';
 $dbspelleffects[81] = 'Resurrect';
 $dbspelleffects[82] = 'Summon PC';
 $dbspelleffects[83] = 'Teleport';
-$dbspelleffects[85] = 'Add Proc:';
+$dbspelleffects[85] = 'Add Proc';
 $dbspelleffects[86] = 'Reaction Radius';
-$dbspelleffects[87] = 'Increase Magnification';
+$dbspelleffects[87] = 'Magnification';
 $dbspelleffects[88] = 'Evacuate';
-$dbspelleffects[89] = 'Increase Player Size';
+$dbspelleffects[89] = 'Player Size';
 $dbspelleffects[90] = 'Cloak';
 $dbspelleffects[91] = 'Summon Corpse';
-$dbspelleffects[92] = 'Increase hate';
+$dbspelleffects[92] = 'Hate';
 $dbspelleffects[93] = 'Stop Rain';
-$dbspelleffects[94] = 'Make Fragile (Delete if combat)';
+$dbspelleffects[94] = 'Make Fragile';
 $dbspelleffects[95] = 'Sacrifice';
 $dbspelleffects[96] = 'Silence';
-$dbspelleffects[97] = 'Increase Mana Pool';
-$dbspelleffects[98] = 'Increase Haste v2';
+$dbspelleffects[97] = 'Mana Pool';
+$dbspelleffects[98] = 'Haste v2';
 $dbspelleffects[99] = 'Root';
-$dbspelleffects[100] = 'Increase Hitpoints v2';
+$dbspelleffects[100] = 'Health';
 $dbspelleffects[101] = 'Complete Heal (with duration)';
 $dbspelleffects[102] = 'Fearless';
 $dbspelleffects[103] = 'Call Pet';
@@ -406,88 +408,87 @@ $dbspelleffects[104] = 'Translocate target to their bind point';
 $dbspelleffects[105] = 'Anti-Gate';
 $dbspelleffects[106] = 'Summon Warder:';
 $dbspelleffects[108] = 'Summon Familiar:';
-$dbspelleffects[109] = 'Summon Item v2';
-$dbspelleffects[111] = 'Increase All Resists';
-$dbspelleffects[112] = 'Increase Effective Casting Level';
+$dbspelleffects[109] = 'Bag Item';
+$dbspelleffects[111] = 'All Resists';
+$dbspelleffects[112] = 'Effective Casting Level';
 $dbspelleffects[113] = 'Summon Horse:';
-$dbspelleffects[114] = 'Increase Agro Multiplier';
+$dbspelleffects[114] = 'Aggro Multiplier';
 $dbspelleffects[115] = 'Food/Water';
-$dbspelleffects[116] = 'Decrease Curse Counter';
+$dbspelleffects[116] = 'Curse Counter';
 $dbspelleffects[117] = 'Make Weapons Magical';
-$dbspelleffects[118] = 'Increase Singing Skill';
-$dbspelleffects[119] = 'Increase Haste v3';
+$dbspelleffects[118] = 'Singing Skill';
+$dbspelleffects[119] = 'Haste v3';
 $dbspelleffects[120] = 'Set Healing Effectiveness';
 $dbspelleffects[121] = 'Reverse Damage Shield';
 $dbspelleffects[123] = 'Screech';
-$dbspelleffects[124] = 'Increase Spell Damage';
-$dbspelleffects[125] = 'Increase Spell Healing';
-$dbspelleffects[127] = 'Increase Spell Haste';
-$dbspelleffects[128] = 'Increase Spell Duration';
-$dbspelleffects[129] = 'Increase Spell Range';
+$dbspelleffects[124] = 'Spell Damage';
+$dbspelleffects[125] = 'Spell Healing';
+$dbspelleffects[127] = 'Spell Haste';
+$dbspelleffects[128] = 'Spell Duration';
+$dbspelleffects[129] = 'Spell Range';
 $dbspelleffects[130] = 'Decrease Spell/Bash Hate';
 $dbspelleffects[131] = 'Decrease Chance of Using Reagent';
 $dbspelleffects[132] = 'Decrease Spell Mana Cost';
-$dbspelleffects[134] = 'Limit Maximum Level';
-$dbspelleffects[135] = 'Limit Resist (Magic Allowed)';
-$dbspelleffects[136] = 'Limit Target';
-$dbspelleffects[137] = 'Limit Effect(Hitpoints Allowed)';
-$dbspelleffects[138] = 'Limit Spell Type (Detrimental Only)';
-$dbspelleffects[139] = 'Limit Spell';
-$dbspelleffects[140] = 'Limit Minimum Duration';
-$dbspelleffects[141] = 'Limit Instant spells only';
-$dbspelleffects[142] = 'Limit Minimum Level';
-$dbspelleffects[143] = 'Limit Minimum Casting Time';
+$dbspelleffects[134] = 'Limit: Maximum Level';
+$dbspelleffects[135] = 'Limit: Resist (Magic Allowed)';
+$dbspelleffects[136] = 'Limit: Target';
+$dbspelleffects[137] = 'Limit: Effect (Health Allowed)';
+$dbspelleffects[138] = 'Limit: Spell Type (Detrimental Only)';
+$dbspelleffects[139] = 'Limit: Spell';
+$dbspelleffects[140] = 'Limit: Minimum Duration';
+$dbspelleffects[141] = 'Limit: Instant Spells Only';
+$dbspelleffects[142] = 'Limit: Minimum Level';
+$dbspelleffects[143] = 'Limit: Minimum Casting Time';
 $dbspelleffects[145] = 'Teleport v2';
-$dbspelleffects[147] = 'Increase Hitpoints';
-$dbspelleffects[148] = 'Block new spell';
-$dbspelleffects[149] = 'Stacking: Overwrite existing spell';
-$dbspelleffects[150] = 'Death Save - Restore Full Health';
+$dbspelleffects[147] = 'Health';
+$dbspelleffects[148] = 'Block Spell';
+$dbspelleffects[149] = 'Overwrite Spell';
+$dbspelleffects[150] = 'Death Save';
 $dbspelleffects[151] = 'Suspend Pet - Lose Buffs and Equipment';
-$dbspelleffects[152] = 'Summon Pets:';
+$dbspelleffects[152] = 'Summon Swarm Pet:';
 $dbspelleffects[153] = 'Balance Party Health';
 $dbspelleffects[154] = 'Remove Detrimental';
 $dbspelleffects[156] = 'Illusion: Target';
 $dbspelleffects[157] = 'Spell-Damage Shield';
-$dbspelleffects[158] = 'Increase Chance to Reflect Spell';
-$dbspelleffects[159] = 'Decrease Stats';
+$dbspelleffects[158] = 'Chance to Reflect Spell';
+$dbspelleffects[159] = 'Stats';
 $dbspelleffects[167] = 'Pet Power Increase';
-$dbspelleffects[168] = 'Increase Melee Mitigation';
-$dbspelleffects[169] = 'Increase Chance to Critical Hit';
-$dbspelleffects[171] = 'CrippBlowChance';
-$dbspelleffects[172] = 'Increase Chance to Avoid Melee';
-$dbspelleffects[173] = 'Increase Chance to Riposte';
-$dbspelleffects[174] = 'Increase Chance to Dodge';
-$dbspelleffects[175] = 'Increase Chance to Parry';
-$dbspelleffects[176] = 'Increase Chance to Dual Wield';
-$dbspelleffects[177] = 'Increase Chance to Double Attack';
+$dbspelleffects[168] = 'Melee Mitigation';
+$dbspelleffects[169] = 'Chance to Critical Hit';
+$dbspelleffects[171] = 'Crippling Blow Chance';
+$dbspelleffects[172] = 'Chance to Avoid Melee';
+$dbspelleffects[173] = 'Chance to Riposte';
+$dbspelleffects[174] = 'Chance to Dodge';
+$dbspelleffects[175] = 'Chance to Parry';
+$dbspelleffects[176] = 'Chance to Dual Wield';
+$dbspelleffects[177] = 'Chance to Double Attack';
 $dbspelleffects[178] = 'Lifetap from Weapon Damage';
 $dbspelleffects[179] = 'Instrument Modifier';
-$dbspelleffects[180] = 'Increase Chance to Resist Spell';
-$dbspelleffects[181] = 'Increase Chance to Resist Fear Spell';
+$dbspelleffects[180] = 'Chance to Resist Spell';
+$dbspelleffects[181] = 'Chance to Resist Fear Spell';
 $dbspelleffects[182] = 'Hundred Hands Effect';
-$dbspelleffects[183] = 'Increase All Skills Skill Check';
-$dbspelleffects[184] = 'Increase Chance to Hit With all Skills';
-$dbspelleffects[185] = 'Increase All Skills Damage Modifier';
-$dbspelleffects[186] = 'Increase All Skills Minimum Damage Modifier';
-$dbspelleffects[188] = 'Increase Chance to Block';
-$dbspelleffects[192] = 'Increase Hate';
+$dbspelleffects[183] = 'All Skills Skill Check';
+$dbspelleffects[184] = 'Chance to Hit With all Skills';
+$dbspelleffects[185] = 'All Skills Damage Modifier';
+$dbspelleffects[186] = 'All Skills Minimum Damage Modifier';
+$dbspelleffects[188] = 'Chance to Block';
+$dbspelleffects[192] = 'Hate';
 $dbspelleffects[194] = 'Fade';
 $dbspelleffects[195] = 'Stun Resist';
-$dbspelleffects[200] = 'Increase Proc Modifier';
-$dbspelleffects[201] = 'Increase Range Proc Modifier';
+$dbspelleffects[200] = 'Proc Modifier';
+$dbspelleffects[201] = 'Range Proc Modifier';
 $dbspelleffects[205] = 'Rampage';
 $dbspelleffects[206] = 'Area of Effect Taunt';
-$dbspelleffects[216] = 'Increase Accuracy';
-$dbspelleffects[227] = 'Reduce Skill Timer';
-$dbspelleffects[254] = 'Blank';
-$dbspelleffects[266] = 'Increase Attack Chance';
-$dbspelleffects[273] = 'Increase Critical Dot Chance';
+$dbspelleffects[216] = 'Accuracy';
+$dbspelleffects[227] = 'Skill Timer';
+$dbspelleffects[266] = 'Attack Chance';
+$dbspelleffects[273] = 'Critical Dot Chance';
 $dbspelleffects[289] = 'Improved Spell Effect';
-$dbspelleffects[294] = 'Increase Critial Spell Chance';
+$dbspelleffects[294] = 'Critial Spell Chance';
 $dbspelleffects[299] = 'Wake the Dead';
 $dbspelleffects[311] = 'Limit: Combat Skills Not Allowed';
-$dbspelleffects[314] = 'Fixed Duration Invisbility (not documented on Lucy)';
-$dbspelleffects[323] = 'Add Defensive Proc:';
+$dbspelleffects[314] = 'Invisbility';
+$dbspelleffects[315] = 'Invisbility versus Undead';
 $dbspelleffects[330] = 'Critical Damage Mob';
 
 
@@ -588,7 +589,6 @@ $NPCTypeArray = [
     '_' => 'Event Spawned',
 ];
 
-// deities
 $dbdeities = [];
 $dbdeities[0] = "Unknown";
 $dbdeities[201] = "Bertoxxulous";
@@ -628,7 +628,6 @@ $dbideities[8] = "Cazic Thule";
 $dbideities[4] = "Brell Serilis";
 $dbideities[2] = "Bertoxxulous";
 
-// elements
 $dbelements = ["Unknown", "Magic", "Fire", "Cold", "Poison", "Disease", "Corruption"];
 
 // damage bonuses 2Hands at 65
@@ -830,21 +829,26 @@ $dbbodytypes[63] = "Swarm pet";
 $dbbodytypes[67] = "Special";
 
 $dbbagtypes = [
+    2 => "Quiver",
     9 => "Alchemy",
-    10 => "Tinkering",
-    12 => "Poison Making",
-    13 => "Special Quests",
-    14 => "Baking",
-    15 => "Baking",
-    16 => "Tailoring",
-    18 => "Fletching",
-    20 => "Jewelry",
-    30 => "Pottery",
-    24 => "Research",
-    25 => "Research",
-    26 => "Research",
-    27 => "Research",
-    46 => "Fishing",
+    10 => "Toolbox",
+    11 => "Books",
+    12 => "Mortar and Pestle",
+    13 => "Quest",
+    14 => "Mixing Bowl",
+    15 => "Spit",
+    16 => "Sewing Kit",
+    17 => "Forge",
+    18 => "Fletching Kit",
+    19 => "Brewing",
+    20 => "Jeweler's Kit",
+    22 => "New Tanaan Kiln",
+    29 => "Concordance of Research",
+    30 => "Quest",
+    46 => "Tackle Box",
+    51 => "Trader's Satchel",
+    53 => "Augmentation Sealer",
+    54 => "Cooking"
 ];
 
 $dbspelltypes = [
@@ -1015,6 +1019,8 @@ $dbiracenames = array(
     139 => "Iksar",
     140 => "Giant",
     141 => "Boat",
+    142 => "Rock",
+    143 => "Tree",
     144 => "Burynai",
     145 => "Goo",
     146 => "Sarnak Spirit",
@@ -2079,29 +2085,34 @@ $dbizonenames = array(
 	999 => array("apprentice", "Designer Apprentice")
 );
 
-$era_zones = array(
-	1  => "Antonica",
-	2  => "Odus",
-	3  => "Faydwer",
-	4  => "Old World Planes",
-	5  => "Ruins of Kunark",
-	6  => "Scars of Velious",
-	7  => "Shadows of Luclin",
-	8  => "The Planes of Power",
-	9  => "The Legacy of Ykesha",
-	10 => "The Lost Dungeons of Norrath",
-	11 => "The Gates of Discord",
-	12 => "The Omens of War",
-	13 => "Dragons of Norrath",
-	14 => "Depths of Darkhollow",
-	15 => "Prophecy of Ro",
-	16 => "The Serpent's Spine",
-	17 => "The Buried Sea",
-	18 => "Secrets of Faydwer",
-	19 => "Seeds of Destruction",
-	20 => "Underfoot",
-	21 => "House of Thule",
-	22 => "Veil of Alaris"
+$expansion_zones = array(
+    1 => "Classic",
+    2 => "Ruins of Kunark",
+    3 => "Scars of Velious",
+    4 => "Shadows of Luclin",
+    5 => "Planes of Power",
+    6 => "Legacy of Ykesha",
+    7 => "Lost Dungeons of Norrath",
+    8 => "Gates of Discord",
+    9 => "Omens of War",
+    /*10 => "Dragons of Norrath",
+    11 => "Depths of Darkhollow",
+    12 => "Prophecy of Ro",
+    13 => "The Serpent's Spine",
+    14 => "The Buried Sea",
+    15 => "Secrets of Faydwer",
+    16 => "Seeds of Destruction",
+    17 => "Underfoot",
+    18 => "House of Thule",
+    19 => "Veil of Alaris",
+    20 => "Rain of Fear",
+    21 => "Call of the Forsaken",
+    22 => "The Darkened Sea",
+    23 => "The Broken Mirror",
+    24 => "Empires of Kunark",
+    25 => "Ring of Scale",
+    26 => "The Burning Lands",
+    27 => "Torment of Velious"*/
 );
 
 $task_types = array(
@@ -2116,3 +2127,29 @@ $duration_codes = array(
 	2 => "Medium",
 	3 => "Long"
 );
+
+$dbstattypes = [
+    0 => "Strength",
+    1 => "Stamina",
+    2 => "Agility",
+    3 => "Dexterity",
+    4 => "Wisdom",
+    5 => "Intelligence",
+    6 => "Charisma",
+    7 => "Magic Resistance",
+    8 => "Cold Resistance",
+    9 => "Fire Resistance",
+    10 => "Poison Resistance",
+    11 => "Disease Resistance",
+    12 => "Corruption Resistance",
+];
+
+$negate_spell_bonuses = [
+    0 => "All Bonuses",
+    1 => "Spell Bonus",
+    2 => "Item Bonus",
+    3 => "Spell and Item Bonuses",
+    4 => "AA Bonus",
+    5 => "Spell and AA Bonuses",
+    6 => "Item and AA Bonuses",
+];

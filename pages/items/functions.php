@@ -403,7 +403,7 @@ function return_where_item_result_trade_skill($item_id){
                     <a href='?a=recipe&id=" . $row["id"] . "'>
                         " . str_replace("_", " ", $row["name"]) . "
                     </a>
-                    (" . strip_underscores(strtolower($dbskills[$row["tradeskill"]])) . ")
+                    (" . strip_underscores($dbskills[$row["tradeskill"]]) . ")
                 </li>";
         }
         $return_buffer .= "</ul></td></tr>";

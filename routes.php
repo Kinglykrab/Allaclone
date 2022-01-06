@@ -15,8 +15,6 @@ if ($route == "spells") {
     require_once('pages/items/item.php');
 } else if ($route == "pets") {
     require_once('pages/pets/pets.php');
-} else if ($route == "zonelist") {
-    require_once('pages/zones/zonelist.php');
 } else if ($route == "items") {
     require_once('pages/items/items.php');
 } else if ($route == "task") {
@@ -53,14 +51,14 @@ if ($route == "spells") {
     require_once('pages/npcs/advanced_npcs.php');
 } else if ($route == "global_search") {
     require_once('pages/global_search.php');
-} */ else if ($route == "zone_era") {
-	require_once('pages/zones/zone_era.php');
+} */ else if ($route == "zone_expansions") {
+	require_once('pages/zones/zone_expansions.php');
 } else {
     if (file_exists('pages/front_page.php')) {
         require_once('pages/front_page.php');
     } else {
         echo '
-            <h2>Welcome to ' . $site_name . ' EQEmu Allakhazam!</h2>
+            <h2>Welcome to ' . $site_name . ' Project Lazarus Allakhazam!</h2>
             <br>
             Get started with the menu on the left!
         ';
